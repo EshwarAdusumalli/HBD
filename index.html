@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A magical, romantic, and interactive birthday celebration website created for someone truly extraordinary.">
+    <meta name="theme-color" content="#080512">
+
+    <title>For my Special person👥❤️ | Happy Birthday</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- Atmospheric Animated Background Layers -->
+    <div class="aurora-bg" aria-hidden="true"></div>
+    <div class="stars-container" id="starsContainer" aria-hidden="true"></div>
+    <div class="hearts-container" id="heartsContainer" aria-hidden="true"></div>
+
+    <!-- High Performance Physics Canvas for Confetti -->
+    <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+    <!-- Top Navigation / Progress Indicator -->
+    <header class="top-nav" role="navigation" aria-label="Journey Progress">
+        <div class="progress-container">
+            <div class="step-dots" id="stepDots">
+                <button class="step-dot active" onclick="goToScreen(1)" aria-label="Go to Step 1: Welcome"
+                    title="Welcome"></button>
+                <button class="step-dot" onclick="goToScreen(2)" aria-label="Go to Step 2: Birthday Cake"
+                    title="Make a Wish"></button>
+                <button class="step-dot" onclick="goToScreen(3)" aria-label="Go to Step 3: Letter"
+                    title="From My Heart"></button>
+                <button class="step-dot" onclick="goToScreen(4)" aria-label="Go to Step 4: Importance"
+                    title="How Important"></button>
+                <button class="step-dot" onclick="goToScreen(5)" aria-label="Go to Step 5: Memories"
+                    title="Memories"></button>
+                <button class="step-dot" onclick="goToScreen(6)" aria-label="Go to Step 6: Journey"
+                    title="Our Journey"></button>
+                <button class="step-dot" onclick="goToScreen(7)" aria-label="Go to Step 7: Final Wish"
+                    title="Final Wish"></button>
+            </div>
+            <span class="step-text" id="stepIndicatorText">Step 1 of 7</span>
+        </div>
+    </header>
+
+    <!-- Floating Audio Player Controller -->
+    <div class="audio-controller" role="region" aria-label="Audio Controls">
+        <button class="music-toggle-btn" id="musicToggleBtn" aria-label="Toggle background birthday music"
+            title="Toggle Music">
+            <span class="music-icon" id="musicIcon">🎵</span>
+            <span class="music-tooltip">Play Music</span>
+        </button>
+        <audio id="bgMusic" loop preload="auto">
+            <source src="assets/music/birthday-song.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- ================= APP SCREENS CONTAINER (STEP BY STEP) ================= -->
+    <main class="app-container">
+
+        <!-- ================= SCREEN 1: HERO (WELCOME) ================= -->
+        <section class="screen active" id="screen1" role="region" aria-label="Screen 1: Welcome">
+            <div class="screen-inner">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-sparkle">✨</span>
+                        <span>A Little Surprise For My Extraordinary "MOTIVATOR💗💎🫵🏻"</span>
+                        <span class="badge-sparkle">✨</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Happy Birthday <span class="heart-pulse">❤️</span>
+                        <span class="hero-subtitle">To My Most Special Person💗💎🫴🏻</span>
+                    </h1>
+
+                    <p class="hero-intro">
+                        Some people enter our lives and become a beautiful part of our story. ✨❤️ And then there are
+                        people who slowly become a part of our heart 💖, our happiness 😊🌸, our memories 🥹🫶, and our
+                        whole world 🌎💫.
+                        They become the reason behind our smiles 😊❤️, the comfort in our difficult moments 🫂🤍, and
+                        some of the most beautiful chapters of our life 📖✨💎.
+                    </p>
+
+                    <div class="screen-actions">
+                        <button class="btn btn-primary hero-btn" onclick="goToScreen(2)">
+                            <span>Begin The Journey ✨</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SCREEN 2: 3D CAKE & WISH ================= -->
+        <section class="screen" id="screen2" role="region" aria-label="Screen 2: Birthday Cake">
+            <div class="screen-inner">
+                <div class="section-header">
+                    <span class="section-tag">Make A Wish</span>
+                    <h2 class="section-title">A Cake Just For You 🎂</h2>
+                    <p class="section-desc" id="cakeInstructionText">
+                        Close your eyes🫣 make your most heartfull wish🫀✨ and tap the candles or click below to blow
+                        them out!
+                    </p>
+                </div>
+
+                <!-- 3D Interactive Cake Container -->
+                <div class="cake-area">
+                    <div class="cake-scene" id="cakeScene">
+                        <div class="cake-shadow"></div>
+                        <div class="cake-platter"></div>
+
+                        <div class="cake-3d" id="cake3D">
+
+                            <!-- 3 Striped Birthday Candles with Multi-Layer Animated Flames -->
+                            <div class="candle candle-left" id="candle1" role="button" tabindex="0"
+                                aria-label="Blow out left candle" onclick="blowSingleCandle(this)"
+                                onkeydown="handleCandleKey(event, this)">
+                                <div class="wick"></div>
+                                <div class="flame-assembly">
+                                    <div class="flame-aura"></div>
+                                    <div class="flame-middle"></div>
+                                    <div class="flame-core"></div>
+                                </div>
+                                <div class="smoke-puff-container">
+                                    <div class="smoke-puff"></div>
+                                    <div class="smoke-puff"></div>
+                                    <div class="smoke-puff"></div>
+                                </div>
+                            </div>
+
+                            <div class="candle candle-mid" id="candle2" role="button" tabindex="0"
+                                aria-label="Blow out middle candle" onclick="blowSingleCandle(this)"
+                                onkeydown="handleCandleKey(event, this)">
+                                <div class="wick"></div>
+                                <div class="flame-assembly">
+                                    <div class="flame-aura"></div>
+                                    <div class="flame-middle"></div>
+                                    <div class="flame-core"></div>
+                                </div>
+                                <div class="smoke-puff-container">
+                                    <div class="smoke-puff"></div>
+                                    <div class="smoke-puff"></div>
+                                    <div class="smoke-puff"></div>
+                                </div>
+                            </div>
+
+                            <div class="candle candle-right" id="candle3" role="button" tabindex="0"
+                                aria-label="Blow out right candle" onclick="blowSingleCandle(this)"
+                                onkeydown="handleCandleKey(event, this)">
+                                <div class="wick"></div>
+                                <div class="flame-assembly">
+                                    <div class="flame-aura"></div>
+                                    <div class="flame-middle"></div>
+                                    <div class="flame-core"></div>
+                                </div>
+                                <div class="smoke-puff-container">
+                                    <div class="smoke-puff"></div>
+                                    <div class="smoke-puff"></div>
+                                    <div class="smoke-puff"></div>
+                                </div>
+                            </div>
+
+                            <!-- Cake Tiers: Chocolate & Strawberry with Frosting and Roses -->
+                            <!-- Top Tier -->
+                            <div class="tier tier-top">
+                                <div class="tier-top-surface"></div>
+                                <div class="frosting frosting-top"></div>
+                                <div class="rose rose-top">🌹</div>
+                            </div>
+
+                            <!-- Middle Tier -->
+                            <div class="tier tier-middle">
+                                <div class="tier-middle-surface"></div>
+                                <div class="frosting frosting-middle"></div>
+                                <div class="rose rose-mid-left">🌹</div>
+                                <div class="rose rose-mid-right">🌹</div>
+                            </div>
+
+                            <!-- Bottom Tier -->
+                            <div class="tier tier-bottom">
+                                <div class="tier-bottom-surface"></div>
+                                <div class="frosting frosting-bottom"></div>
+                                <div class="rose rose-bot-left">🌹</div>
+                                <div class="rose rose-bot-mid">🌹</div>
+                                <div class="rose rose-bot-right">🌹</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cake-controls">
+                    <button class="btn btn-primary blow-btn" id="blowCandlesBtn" onclick="blowAllCandles()">
+                        <span>🕯️ Make A Wish & Blow Candles</span>
+                    </button>
+
+                    <button class="btn btn-outline" id="btnNextAfterCake" onclick="goToScreen(3)">
+                        <span>Sweet! Let's Continue 🌸</span>
+                    </button>
+                </div>
+
+                <div class="nav-button-row">
+                    <button class="btn btn-subtle" onclick="goToScreen(1)">← Back</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SCREEN 3: HEARTFELT LETTER ================= -->
+        <section class="screen" id="screen3" role="region" aria-label="Screen 3: Heartfelt Letter">
+            <div class="screen-inner">
+                <div class="section-header">
+                    <span class="section-tag">From My Heart ❤️</span>
+                    <h2 class="section-title">Something I Want You To Know</h2>
+                </div>
+
+                <div class="glass-card message-card">
+                    <div class="glass-shine" aria-hidden="true"></div>
+
+                    <p class="letter-greeting">Hey you ❤️</p>
+
+                    <p>
+                        Naa life lo nv just oka best friend matrame kadhu 🥹💗 Naa life lo chala ante chala
+                        important💎📌 person 🫂❤️ Nenu down iynapudu 📉 nannu motivate📈 chase first person nve🫵🏻 💪✨
+                        Nenu yadusthunte na feelings🥹❤️‍🩹 ni ardham cheskoni care❤️‍🩹🤌🏻 chase person kuda nuvve
+                        🥺🫶 Naa happiness lo happy iyavu 😭💗 naa problems⚠️🌧️ lo na pakkana 👥 nilabadathavu 🤝🏻💎
+                        Nuvvu chupinche care ❤️‍🩹 ni support 🫂 ni chinna chinna efforts 🥹✨ anni naku chala special 💗
+                        Naa life lo eni problems vachina vellina 🥹 nv occupy chesina place matram eppatiki special
+                        gaane untundi 💗💎🫴🏻 Nuvvu naa best friend ani chapukovadam naaku honest🤗 chala proud 🫶🏻👑
+                        Na life lo oka beautiful blessing 💫 la vachina person nve 💕✨ Always ilane na pakana undu
+                        🫂❤️‍🩹 because nuvvu unte naku entha tough😣 situation ina chala ante chala easy ga
+                        anipisthundi 🥹💗💎
+                    </p>
+
+                    <p>
+                        You deserve all the happiness🤗 in this world 🌍💖✨ Never stop smiling 😊🌸 Never stop dreaming
+                        🌙💫 and never stop being the amazing person of me🥹🫠 you are truly deserve all the love🥹❤️🫶✨
+                        happiness🤗😚 and beautiful moments💭🥹📸 life has to offer 🌷💎
+                    </p>
+
+                    <p>
+                        Nenu happy 😊 ga unapudu na happiness ni double chase person nuvve🫵🏻 😂💖✨ Nenu sad ga unapudu
+                        na
+                        face meeda smile ☺️ tepinchadaniki try chese person kuda nuvve 🥹😊🫂 Naa success ki genuinely
+                        happy
+                        iye person 🎉❤️ naa failures lo kuda nannu vadileyakunda support🫴🏻 chese person 🤝💗 Sometimes
+                        ni
+                        dagara nunchi oka small message 📱💬 🤍 kuda naaku chala uchaham istundi 🥳📈✨
+                    </p>
+                    <p>
+                        Naa life lo chala mandhi vacharu velaru 🚶‍♀️🌎 kani nv create chasina place naa heart lo always
+                        special ga untundi 💖🔐 Nv naku ichina memories 🥹📸✨ care 🫂❤️ support 🤝💫 and happiness 😊🌸
+                        ani naaku chala precious🖇️🤝 Mana friendship lo fights unna 😤😂 misunderstandings unna 🥲❤️‍🩹
+                        still mana bond ni break ⛓️‍💥 chayaleni oka special connection undhi 🫶❤️‍🩹♾️
+                    </p>
+
+                    <p>
+                        Nv na best friend ani chapadam kante 🥹💗 naa life lo most important❤️‍🩹🫀 people lo okaru ani
+                        chapadam correct correct emo kadhu correct yee 💯 ✨❤️ Naa dreams kosam nanu push chase motivator
+                        💪🔥 naa bad days lo pakkana niliche support system 🫂🤍 naa silly moments ni tolerate chese
+                        crazy
+                        friend 😂🤣💗 nuvve 🫵🏻Life lo entha busy ina ⏳🌎 enni changes vachina 🔄✨ mana beautiful
+                        memories
+                        matram eppatiki special ga untayi 🥹📸❤️ Nv always happy ga undali 😊🌸 peaceful ga undali 🕊️🤍
+                        and
+                    </p>
+
+                    <p>
+                        nee dreams 💭 ani achieve cheyyali 👍🏻🌟💫
+                    </p>
+
+                    <p>
+                        He’s not just my bestfriend👥 he’s my safe place🤗 my peace🫴🏻 and the one person who truly
+                        understands me💞 Every little✨ thing he does shows how much he cares😚 whether it’s checking on
+                        me☺️ supporting me🤌🏻 or just making me smile☺️ on my worst days🥺✨ His love feels warm
+                        gentle😁 and comforting🤗 like a hug I never want to let go of🤗❤️ I’m really grateful to have
+                        him in my life and I love💗 him more than I can ever express🌸💗like a place where I can rest
+                        without fear🤗💗 No matter how tough my day is one message from him can change everything.✨ His
+                        smile brings peace🤍his words bring comfort, and his presence makes my world feel brighter.🌟
+                        I’m endlessly grateful for him🤌🏻 and I cherish the love🤍 he gives me every single day💖🌸
+                        <strong class="highlight-text">you mean more to me than you probably realize.</strong>
+                    </p>
+
+                    <p>
+                        Thank you for being my "MOTIVATOR 💗💎🤌🏻" my supporter💪 🤝❤️ my happiness 😊🌸 my comfort
+                        person
+                        🫂🤍 and most importantly… my "BEST FRIEND forever ♾️💗🫶" Nv na life lo undadam oka
+                        beautiful✨🪽
+                        blessing 🥹✨❤️‍🩹Mana friendship always ilaane strong ga undali 🫂🔐💎♾️❤️
+                    </p>
+
+                    <p>
+                        👉🏻Mana kotina 1st college bunk naku chala special 🥹❤️‍🩹✨ entha ante I can't even express it
+                        properly 🫂💗 Endhukante adhi mana iddari first bunk 😭😂❤️ Inka aa roju matram na life lo
+                        marchipoleni oka beautiful memory 🥹📸✨ One of the best days of my life ❤️‍🩹🌸💫 Nv em anukunna
+                        sare 😂🙈 “Veedu enti ila antunnadu” ani anukunna parledhu 😭😂 kani nv em anukunna naku aa
+                        memory matram nijamga chala special 💎❤️
+                        Nitho nenu spend chesina memories lo 🥹🫶🏻 best memory edaina undhi ante adhi manam first time
+                        bunk vesina aa roju 🥹❤️‍🩹✨ Inka aa roju pics digudham ani cheppi 📸😂 nv poses nannu adigina
+                        moment kuda chala unforgettable 🥹💗✨ Aa small moments anni ippudu chusthe kuda automatic ga
+                        smile vasthadhi 😊❤️🌸
+                        Honestly ga cheppali ante 🥹💎 you're one of the best people I got in my life ❤️🫂✨ Ninnu ye
+                        situation lo aina lose avvalani nenu eppudu korukonu 🥺❤️‍🩹🔐 Please always believe that 🫂💗♾️
+                        Mana friendship naaku entha precious oo words lo explain cheyyalenu 💎🥹
+                        And ee birthday 🎂🎉❤️ ni nuvvu life long gurthu pettukovali 🥹✨ Endhukante ee birthday lo unna
+                        wishes 🎂💌 memories 📸❤️ and mana bond 🫂💎 anni kalisi oka beautiful memory ga migilipovali
+                        🌸✨♾️ Once again Happy Birthday to my motivator 💪🏻❤️ my best friend 🫶🏻💗 and one of the most
+                        precious people in my life 💎🥹❤️‍🩹
+                    </p>
+
+                    <p>
+                        I hope this new year of your life gives you everything your heart has been wishing for 🥹💗✨
+                        happiness 😊🌸 peace 🕊️🤍 success 🏆💫 beautiful moments 📸🌷 and countless reasons to smile
+                        😊❤️✨🫶🏻💎♾️
+                    </p>
+
+                    <p>
+                        And wherever life takes us 🛣️✨❤️ I hope some part of this beautiful journey always remains a
+                        precious memory 🥹💎📸 we can look back at someday and smile about 😊❤️‍🩹🌸🫂✨ No matter how
+                        much life changes 🔄🌎 I hope these moments and memories always stay close to our hearts
+                        💗🔐♾️🥹🫶🏻✨
+                    </p>
+
+                    <div class="signature">
+                        Always special to me ❤️
+                    </div>
+                </div>
+
+                <div class="nav-button-row">
+                    <button class="btn btn-subtle" onclick="goToScreen(2)">← Back</button>
+                    <button class="btn btn-primary" onclick="goToScreen(4)">
+                        <span>How Important Are You? ❤️ →</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SCREEN 4: IMPORTANCE / EMOTIONAL QUOTE ================= -->
+        <section class="screen" id="screen4" role="region" aria-label="Screen 4: Importance">
+            <div class="screen-inner">
+                <div class="section-header">
+                    <span class="section-tag">If You Ever Wonder...</span>
+                    <h2 class="section-title">How Important Are You?</h2>
+                </div>
+
+                <div class="importance-wrapper">
+                    <div class="heart-pulse-container" aria-hidden="true">
+                        <div class="heart-glow-ring"></div>
+                        <div class="big-heart">❤️</div>
+                    </div>
+
+                    <div class="importance-quote-box">
+                        <p class="importance-quote">
+                            "If I had to explain your place in my life🌍🛤️ I wouldn't know where to start...<br><br>
+                            Because you're not just a chapter in my story 📸📖🥹<br><br>
+                            You're one of the reasons the story became beautiful✨💫"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="nav-button-row">
+                    <button class="btn btn-subtle" onclick="goToScreen(3)">← Back</button>
+                    <button class="btn btn-primary" onclick="goToScreen(5)">
+                        <span>Look At Our Memories 📸 →</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SCREEN 5: MEMORY GALLERY ================= -->
+        <section class="screen" id="screen5" role="region" aria-label="Screen 5: Memories Gallery">
+            <div class="screen-inner">
+                <div class="section-header">
+                    <span class="section-tag">Our Little Universe 📸</span>
+                    <h2 class="section-title">Memories I'll Always Keep</h2>
+                    <p class="section-desc">Every picture holds a feeling, a smile, and a moment that will stay forever.
+                    </p>
+                </div>
+
+                <div class="photo-grid">
+
+                    <!-- Memory Card 1 (Video) -->
+                    <div class="photo-card video-card" tabindex="0" role="button"
+                        aria-label="Play video: A Beautiful Memory" onclick="openMemoryLightbox(0)"
+                        onkeydown="if(event.key==='Enter'||event.key===' ')openMemoryLightbox(0)">
+                        <div class="photo-inner">
+                            <img src="assets/images/photo1.jpeg" alt="A Beautiful Memory" class="photo-img"
+                                onerror="this.style.display='none'">
+                            <div class="video-play-indicator" aria-hidden="true">
+                                <span class="play-icon">▶</span>
+                            </div>
+                            <div class="photo-overlay">
+                                <span class="photo-badge video-badge">🎥 Video Memory 01</span>
+                                <h3 class="photo-title">A Beautiful Memory ❤️</h3>
+                                <p class="photo-desc">One of those moments I will always keep close to my heart.</p>
+                                <span class="photo-tap-hint">Tap to play full screen 🎬</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 2 -->
+                    <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Just Us"
+                        onclick="openMemoryLightbox(1)"
+                        onkeydown="if(event.key==='Enter'||event.key===' ')openMemoryLightbox(1)">
+                        <div class="photo-inner">
+                            <img src="assets/images/photo10.jpeg" alt="Just Us" loading="lazy" class="photo-img"
+                                onerror="this.src='assets/images/photo1.jpeg'">
+                            <div class="photo-overlay">
+                                <span class="photo-badge">Memory 02</span>
+                                <h3 class="photo-title">Just Us ✨</h3>
+                                <p class="photo-desc">One picture, a thousand memories.</p>
+                                <span class="photo-tap-hint">Tap to view full screen ✨</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 3 -->
+                    <div class="photo-card" tabindex="0" role="button" aria-label="View photo: That Smile"
+                        onclick="openMemoryLightbox(2)"
+                        onkeydown="if(event.key==='Enter'||event.key===' ')openMemoryLightbox(2)">
+                        <div class="photo-inner">
+                            <img src="assets/images/photo5.jpeg" alt="That Smile" loading="lazy" class="photo-img"
+                                onerror="this.src='assets/images/photo1.jpeg'">
+                            <div class="photo-overlay">
+                                <span class="photo-badge">Memory 03</span>
+                                <h3 class="photo-title">That Smile 🥹</h3>
+                                <p class="photo-desc">One of my favourite things.</p>
+                                <span class="photo-tap-hint">Tap to view full screen ✨</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 4 -->
+                    <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Crazy Times"
+                        onclick="openMemoryLightbox(3)"
+                        onkeydown="if(event.key==='Enter'||event.key===' ')openMemoryLightbox(3)">
+                        <div class="photo-inner">
+                            <img src="assets/images/photo11.jpeg" alt="Crazy Times" loading="lazy" class="photo-img"
+                                onerror="this.src='assets/images/photo1.jpeg'">
+                            <div class="photo-overlay">
+                                <span class="photo-badge">Memory 04</span>
+                                <h3 class="photo-title">Forever favourite 💗💎🤌🏻</h3>
+                                <p class="photo-desc">The moments that make no sense but mean everything.</p>
+                                <span class="photo-tap-hint">Tap to view full screen ✨</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 5 -->
+                    <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Beautiful Memories"
+                        onclick="openMemoryLightbox(4)"
+                        onkeydown="if(event.key==='Enter'||event.key===' ')openMemoryLightbox(4)">
+                        <div class="photo-inner">
+                            <img src="assets/images/photo3.jpeg" alt="Beautiful Memories" loading="lazy"
+                                class="photo-img" onerror="this.src='assets/images/photo1.jpeg'">
+                            <div class="photo-overlay">
+                                <span class="photo-badge">Memory 05</span>
+                                <h3 class="photo-title">Beautiful Memories 🌸</h3>
+                                <p class="photo-desc">Some moments deserve to be remembered forever.</p>
+                                <span class="photo-tap-hint">Tap to view full screen ✨</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 6 -->
+                    <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Forever A Memory"
+                        onclick="openMemoryLightbox(5)"
+                        onkeydown="if(event.key==='Enter'||event.key===' ')openMemoryLightbox(5)">
+                        <div class="photo-inner">
+                            <img src="assets/images/photo6.jpeg" alt="Forever A Memory" loading="lazy" class="photo-img"
+                                onerror="this.src='assets/images/photo1.jpeg'">
+                            <div class="photo-overlay">
+                                <span class="photo-badge">Memory 06</span>
+                                <h3 class="photo-title">Just you 💫</h3>
+                                <p class="photo-desc">I'm glad this moment happened.</p>
+                                <span class="photo-tap-hint">Tap to view full screen ✨</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 7 -->
+                    <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Our Story"
+                        onclick="openMemoryLightbox(6)"
+                        onkeydown="if(event.key==='Enter'||event.key===' ')openMemoryLightbox(6)">
+                        <div class="photo-inner">
+                            <img src="assets/images/photo7.jpeg" alt="Our Story" loading="lazy" class="photo-img"
+                                onerror="this.src='assets/images/photo1.jpeg'">
+                            <div class="photo-overlay">
+                                <span class="photo-badge">Memory 07</span>
+                                <h3 class="photo-title">The innocent face 🫣</h3>
+                                <p class="photo-desc">Another page of our beautiful story.</p>
+                                <span class="photo-tap-hint">Tap to view full screen ✨</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 8 -->
+                    <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Unforgettable"
+                        onclick="openMemoryLightbox(7)"
+                        onkeydown="if(event.key==='Enter'||event.key===' ')openMemoryLightbox(7)">
+                        <div class="photo-inner">
+                            <img src="assets/images/photo8.jpeg" alt="Unforgettable" loading="lazy" class="photo-img"
+                                onerror="this.src='assets/images/photo1.jpeg'">
+                            <div class="photo-overlay">
+                                <span class="photo-badge">Memory 08</span>
+                                <h3 class="photo-title">Unforgettable ❤️</h3>
+                                <p class="photo-desc">This one will always have a special place.</p>
+                                <span class="photo-tap-hint">Tap to view full screen ✨</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 9 -->
+                    <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Good Times"
+                        onclick="openMemoryLightbox(8)"
+                        onkeydown="if(event.key==='Enter'||event.key===' ')openMemoryLightbox(8)">
+                        <div class="photo-inner">
+                            <img src="assets/images/photo9.jpeg" alt="Good Times" loading="lazy" class="photo-img"
+                                onerror="this.src='assets/images/photo1.jpeg'">
+                            <div class="photo-overlay">
+                                <span class="photo-badge">Memory 09</span>
+                                <h3 class="photo-title">Teenager 👶🏻🐣</h3>
+                                <p class="photo-desc">Memories I never want to lose.</p>
+                                <span class="photo-tap-hint">Tap to view full screen ✨</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 10 -->
+                    <div class="photo-card" tabindex="0" role="button" aria-label="View photo: And Many More"
+                        onclick="openMemoryLightbox(9)"
+                        onkeydown="if(event.key==='Enter'||event.key===' ')openMemoryLightbox(9)">
+                        <div class="photo-inner">
+                            <img src="assets/images/photo2.jpeg" alt="And Many More" loading="lazy" class="photo-img"
+                                onerror="this.src='assets/images/photo1.jpeg'">
+                            <div class="photo-overlay">
+                                <span class="photo-badge">Memory 10</span>
+                                <h3 class="photo-title">The way i look at you... 🫶</h3>
+                                <p class="photo-desc">Because our story isn't finished yet.</p>
+                                <span class="photo-tap-hint">Tap to view full screen ✨</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="nav-button-row">
+                    <button class="btn btn-subtle" onclick="goToScreen(4)">← Back</button>
+                    <button class="btn btn-primary" onclick="goToScreen(6)">
+                        <span>Our Journey Through Time ⏳ →</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SCREEN 6: OUR JOURNEY (TIMELINE) ================= -->
+        <section class="screen" id="screen6" role="region" aria-label="Screen 6: Our Journey">
+            <div class="screen-inner">
+                <div class="section-header">
+                    <span class="section-tag">Our Journey</span>
+                    <h2 class="section-title">Little Moments, Big Memories</h2>
+                    <p class="section-desc">A timeline of the milestones that brought us closer together.</p>
+                </div>
+
+                <div class="timeline">
+
+                    <!-- Milestone 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="glass-card timeline-card">
+                            <h3 class="timeline-title">🌱 The Beginning</h3>
+                            <p class="timeline-desc">
+                                Maybe we didn't know it at the beginning, but something beautiful was starting.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="glass-card timeline-card">
+                            <h3 class="timeline-title">😂 The Crazy Moments</h3>
+                            <p class="timeline-desc">
+                                Random conversations and laughing until our stomachs hurt over the silliest things.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="glass-card timeline-card">
+                            <h3 class="timeline-title">🌙 The Late Nights</h3>
+                            <p class="timeline-desc">
+                                Those late-night conversations that somehow made time completely disappear.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="glass-card timeline-card">
+                            <h3 class="timeline-title">❤️ The Memories</h3>
+                            <p class="timeline-desc">
+                                Priceless ordinary moments that look simple to everyone else, but mean the world to
+                                me🥹💗🌎
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="glass-card timeline-card">
+                            <h3 class="timeline-title">✨ Today</h3>
+                            <p class="timeline-desc">
+                                Today I just want to say: I'm genuinely grateful every single day that you're part of my
+                                life and my mentor my "MOTIVATOR💗💎🫵🏻"
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="nav-button-row">
+                    <button class="btn btn-subtle" onclick="goToScreen(5)">← Back</button>
+                    <button class="btn btn-primary" onclick="goToScreen(7)">
+                        <span>One Last Thing... 💌 →</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SCREEN 7: FINAL WISH ================= -->
+        <section class="screen" id="screen7" role="region" aria-label="Screen 7: Final Wish">
+            <div class="screen-inner">
+                <div class="glass-card final-card">
+                    <div class="glass-shine" aria-hidden="true"></div>
+
+                    <h2 class="final-title">One Last Thing...🥹 ❤️</h2>
+
+                    <p class="final-subtext">
+                        If you ever feel like you're not important, come back to this page.
+                        Read this again. Look at these memories again.
+                    </p>
+
+                    <div class="affirmation-box">
+                        <p class="affirmation-line">You are important.</p>
+                        <p class="affirmation-line">You are appreciated.</p>
+                        <p class="affirmation-line">You are remembered.</p>
+                        <p class="affirmation-line highlight">You are loved in a very special way ✨💫❤️</p>
+                    </div>
+
+                    <p class="final-gift-quote">
+                        And if I could give you one gift today, it wouldn't be something wrapped in a box.<br><br>
+                        It would be the ability to see yourself through my eyes for just one moment...<br><br>
+                        Maybe then you'd understand just how special you really are to me.
+                    </p>
+
+                    <h3 class="final-special-person">
+                        Happy Birthday,<br>
+                        <span>My Special Person 💗💎🫵🏻</span>
+                    </h3>
+
+                    <div class="final-actions">
+                        <button class="btn btn-primary celebrate-btn" id="celebrateAgainBtn"
+                            onclick="triggerCelebration()">
+                            <span>Celebrate Again! 🎉</span>
+                        </button>
+                        <button class="btn btn-outline" onclick="goToScreen(1)">
+                            <span>Replay From Beginning ↺</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ================= CUSTOM WISH CONFIRMATION MODAL ================= -->
+    <div class="modal-backdrop" id="wishModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+        aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-sparkles" aria-hidden="true">✨ 💖 ✨</div>
+            <h3 class="modal-title" id="modalTitle">✨ Wish Made! ✨</h3>
+            <p class="modal-body">
+                May every beautiful wish in your heart come true, today and always 🤌🏻❤️
+            </p>
+            <button class="btn btn-primary modal-close-btn" id="closeWishModalBtn" onclick="closeWishModal()">
+                <span>Continue The Journey 🌸</span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ================= PHOTO & VIDEO LIGHTBOX MODAL ================= -->
+    <div class="lightbox-backdrop" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true"
+        onclick="closeLightbox(event)">
+        <!-- Top Action Bar -->
+        <div class="lightbox-header">
+            <span class="lightbox-counter" id="lightboxCounter">Memory 1 of 10</span>
+            <div class="lightbox-top-actions">
+                <button class="lightbox-action-btn" id="lightboxFullscreenBtn" aria-label="Toggle full screen mode"
+                    title="Full Screen (F)" onclick="toggleLightboxFullscreen(event)">
+                    <span id="fullscreenIcon">⛶</span>
+                </button>
+                <button class="lightbox-close-btn" aria-label="Close preview" title="Close (Esc)"
+                    onclick="closeLightbox(event)">&times;</button>
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="lightbox-nav-btn prev" id="lightboxPrevBtn" aria-label="Previous memory"
+            title="Previous (Left Arrow)" onclick="prevMemory(event)">
+            <span>&#10094;</span>
+        </button>
+        <button class="lightbox-nav-btn next" id="lightboxNextBtn" aria-label="Next memory" title="Next (Right Arrow)"
+            onclick="nextMemory(event)">
+            <span>&#10095;</span>
+        </button>
+
+        <div class="lightbox-content" id="lightboxContent" onclick="event.stopPropagation()">
+            <div class="lightbox-media-container" id="lightboxMediaContainer">
+                <img src="" alt="Memory Full Preview" id="lightboxImg" class="lightbox-img">
+                <video id="lightboxVideo" class="lightbox-video" controls playsinline preload="auto">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <div class="lightbox-caption">
+                <h3 id="lightboxTitle" class="lightbox-title"></h3>
+                <p id="lightboxDesc" class="lightbox-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>
