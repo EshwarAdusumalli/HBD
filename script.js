@@ -477,7 +477,7 @@ const MEMORIES = [
     {
         id: 1,
         type: 'video',
-        src: 'assets/motivator.mp4',
+        src: 'Motivator.mp4',
         poster: 'assets/images/photo1.jpeg',
         badge: 'Memory 01 • Video 🎬',
         title: 'A Beautiful Memory ❤️',
