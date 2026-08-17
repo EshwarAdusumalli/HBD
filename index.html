@@ -7,31 +7,24 @@
     <meta name="description"
         content="A magical, romantic, and interactive birthday celebration website created for someone truly extraordinary.">
     <meta name="theme-color" content="#080512">
-
     <title>For my Special person👥❤️ | Happy Birthday</title>
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-
     <!-- Atmospheric Animated Background Layers -->
     <div class="aurora-bg" aria-hidden="true"></div>
     <div class="stars-container" id="starsContainer" aria-hidden="true"></div>
     <div class="hearts-container" id="heartsContainer" aria-hidden="true"></div>
-
     <!-- High Performance Physics Canvas for Confetti -->
     <canvas id="confettiCanvas" aria-hidden="true"></canvas>
-
     <!-- Top Navigation / Progress Indicator -->
     <header class="top-nav" role="navigation" aria-label="Journey Progress">
         <div class="progress-container">
@@ -54,7 +47,6 @@
             <span class="step-text" id="stepIndicatorText">Step 1 of 7</span>
         </div>
     </header>
-
     <!-- Floating Audio Player Controller -->
     <div class="audio-controller" role="region" aria-label="Audio Controls">
         <button class="music-toggle-btn" id="musicToggleBtn" aria-label="Toggle background birthday music"
@@ -66,10 +58,8 @@
             <source src="Vadhalane.mp3" type="audio/mpeg">
         </audio>
     </div>
-
     <!-- ================= APP SCREENS CONTAINER (STEP BY STEP) ================= -->
     <main class="app-container">
-
         <!-- ================= SCREEN 1: HERO (WELCOME) ================= -->
         <section class="screen active" id="screen1" role="region" aria-label="Screen 1: Welcome">
             <div class="screen-inner">
@@ -79,12 +69,10 @@
                         <span>A Little Surprise For My Extraordinary "MOTIVATOR💗💎🫵🏻"</span>
                         <span class="badge-sparkle">✨</span>
                     </div>
-
                     <h1 class="hero-title">
                         Happy Birthday <span class="heart-pulse">❤️</span>
                         <span class="hero-subtitle">To My Most Special Person💗💎🫴🏻</span>
                     </h1>
-
                     <p class="hero-intro">
                         Some people enter our lives and become a beautiful part of our story. ✨❤️ And then there are
                         people who slowly become a part of our heart 💖, our happiness 😊🌸, our memories 🥹🫶, and our
@@ -92,7 +80,6 @@
                         They become the reason behind our smiles 😊❤️, the comfort in our difficult moments 🫂🤍, and
                         some of the most beautiful chapters of our life 📖✨💎.
                     </p>
-
                     <div class="screen-actions">
                         <button class="btn btn-primary hero-btn" onclick="goToScreen(2)">
                             <span>Begin The Journey ✨</span>
@@ -101,8 +88,6 @@
                 </div>
             </div>
         </section>
-
-
         <!-- ================= SCREEN 2: 3D CAKE & WISH ================= -->
         <section class="screen" id="screen2" role="region" aria-label="Screen 2: Birthday Cake">
             <div class="screen-inner">
@@ -114,15 +99,12 @@
                         them out!
                     </p>
                 </div>
-
                 <!-- 3D Interactive Cake Container -->
                 <div class="cake-area">
                     <div class="cake-scene" id="cakeScene">
                         <div class="cake-shadow"></div>
                         <div class="cake-platter"></div>
-
                         <div class="cake-3d" id="cake3D">
-
                             <!-- 3 Striped Birthday Candles with Multi-Layer Animated Flames -->
                             <div class="candle candle-left" id="candle1" role="button" tabindex="0"
                                 aria-label="Blow out left candle" onclick="blowSingleCandle(this)"
@@ -139,7 +121,6 @@
                                     <div class="smoke-puff"></div>
                                 </div>
                             </div>
-
                             <div class="candle candle-mid" id="candle2" role="button" tabindex="0"
                                 aria-label="Blow out middle candle" onclick="blowSingleCandle(this)"
                                 onkeydown="handleCandleKey(event, this)">
@@ -155,7 +136,6 @@
                                     <div class="smoke-puff"></div>
                                 </div>
                             </div>
-
                             <div class="candle candle-right" id="candle3" role="button" tabindex="0"
                                 aria-label="Blow out right candle" onclick="blowSingleCandle(this)"
                                 onkeydown="handleCandleKey(event, this)">
@@ -171,7 +151,6 @@
                                     <div class="smoke-puff"></div>
                                 </div>
                             </div>
-
                             <!-- Cake Tiers: Chocolate & Strawberry with Frosting and Roses -->
                             <!-- Top Tier -->
                             <div class="tier tier-top">
@@ -179,7 +158,6 @@
                                 <div class="frosting frosting-top"></div>
                                 <div class="rose rose-top">🌹</div>
                             </div>
-
                             <!-- Middle Tier -->
                             <div class="tier tier-middle">
                                 <div class="tier-middle-surface"></div>
@@ -187,7 +165,6 @@
                                 <div class="rose rose-mid-left">🌹</div>
                                 <div class="rose rose-mid-right">🌹</div>
                             </div>
-
                             <!-- Bottom Tier -->
                             <div class="tier tier-bottom">
                                 <div class="tier-bottom-surface"></div>
@@ -196,28 +173,22 @@
                                 <div class="rose rose-bot-mid">🌹</div>
                                 <div class="rose rose-bot-right">🌹</div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="cake-controls">
                     <button class="btn btn-primary blow-btn" id="blowCandlesBtn" onclick="blowAllCandles()">
                         <span>🕯️ Make A Wish & Blow Candles</span>
                     </button>
-
                     <button class="btn btn-outline" id="btnNextAfterCake" onclick="goToScreen(3)">
                         <span>Sweet! Let's Continue 🌸</span>
                     </button>
                 </div>
-
                 <div class="nav-button-row">
                     <button class="btn btn-subtle" onclick="goToScreen(1)">← Back</button>
                 </div>
             </div>
         </section>
-
-
         <!-- ================= SCREEN 3: HEARTFELT LETTER ================= -->
         <section class="screen" id="screen3" role="region" aria-label="Screen 3: Heartfelt Letter">
             <div class="screen-inner">
@@ -225,12 +196,9 @@
                     <span class="section-tag">From My Heart ❤️</span>
                     <h2 class="section-title">Something I Want You To Know</h2>
                 </div>
-
                 <div class="glass-card message-card">
                     <div class="glass-shine" aria-hidden="true"></div>
-
                     <p class="letter-greeting">Hey you ❤️</p>
-
                     <p>
                         Naa life lo nv just oka best friend matrame kadhu 🥹💗 Naa life lo chala ante chala
                         important💎📌 person 🫂❤️ Nenu down iynapudu 📉 nannu motivate📈 chase first person nve🫵🏻 💪✨
@@ -243,13 +211,11 @@
                         🫂❤️‍🩹 because nuvvu unte naku entha tough😣 situation ina chala ante chala easy ga
                         anipisthundi 🥹💗💎
                     </p>
-
                     <p>
                         You deserve all the happiness🤗 in this world 🌍💖✨ Never stop smiling 😊🌸 Never stop dreaming
                         🌙💫 and never stop being the amazing person of me🥹🫠 you are truly deserve all the love🥹❤️🫶✨
                         happiness🤗😚 and beautiful moments💭🥹📸 life has to offer 🌷💎
                     </p>
-
                     <p>
                         Nenu happy 😊 ga unapudu na happiness ni double chase person nuvve🫵🏻 😂💖✨ Nenu sad ga unapudu
                         na
@@ -265,7 +231,6 @@
                         ani naaku chala precious🖇️🤝 Mana friendship lo fights unna 😤😂 misunderstandings unna 🥲❤️‍🩹
                         still mana bond ni break ⛓️‍💥 chayaleni oka special connection undhi 🫶❤️‍🩹♾️
                     </p>
-
                     <p>
                         Nv na best friend ani chapadam kante 🥹💗 naa life lo most important❤️‍🩹🫀 people lo okaru ani
                         chapadam correct correct emo kadhu correct yee 💯 ✨❤️ Naa dreams kosam nanu push chase motivator
@@ -276,11 +241,9 @@
                         matram eppatiki special ga untayi 🥹📸❤️ Nv always happy ga undali 😊🌸 peaceful ga undali 🕊️🤍
                         and
                     </p>
-
                     <p>
                         nee dreams 💭 ani achieve cheyyali 👍🏻🌟💫
                     </p>
-
                     <p>
                         He’s not just my bestfriend👥 he’s my safe place🤗 my peace🫴🏻 and the one person who truly
                         understands me💞 Every little✨ thing he does shows how much he cares😚 whether it’s checking on
@@ -292,7 +255,6 @@
                         I’m endlessly grateful for him🤌🏻 and I cherish the love🤍 he gives me every single day💖🌸
                         <strong class="highlight-text">you mean more to me than you probably realize.</strong>
                     </p>
-
                     <p>
                         Thank you for being my "MOTIVATOR 💗💎🤌🏻" my supporter💪 🤝❤️ my happiness 😊🌸 my comfort
                         person
@@ -300,7 +262,6 @@
                         beautiful✨🪽
                         blessing 🥹✨❤️‍🩹Mana friendship always ilaane strong ga undali 🫂🔐💎♾️❤️
                     </p>
-
                     <p>
                         👉🏻Mana kotina 1st college bunk naku chala special 🥹❤️‍🩹✨ entha ante I can't even express it
                         properly 🫂💗 Endhukante adhi mana iddari first bunk 😭😂❤️ Inka aa roju matram na life lo
@@ -319,25 +280,21 @@
                         🌸✨♾️ Once again Happy Birthday to my motivator 💪🏻❤️ my best friend 🫶🏻💗 and one of the most
                         precious people in my life 💎🥹❤️‍🩹
                     </p>
-
                     <p>
                         I hope this new year of your life gives you everything your heart has been wishing for 🥹💗✨
                         happiness 😊🌸 peace 🕊️🤍 success 🏆💫 beautiful moments 📸🌷 and countless reasons to smile
                         😊❤️✨🫶🏻💎♾️
                     </p>
-
                     <p>
                         And wherever life takes us 🛣️✨❤️ I hope some part of this beautiful journey always remains a
                         precious memory 🥹💎📸 we can look back at someday and smile about 😊❤️‍🩹🌸🫂✨ No matter how
                         much life changes 🔄🌎 I hope these moments and memories always stay close to our hearts
                         💗🔐♾️🥹🫶🏻✨
                     </p>
-
                     <div class="signature">
                         Always special to me ❤️
                     </div>
                 </div>
-
                 <div class="nav-button-row">
                     <button class="btn btn-subtle" onclick="goToScreen(2)">← Back</button>
                     <button class="btn btn-primary" onclick="goToScreen(4)">
@@ -346,8 +303,6 @@
                 </div>
             </div>
         </section>
-
-
         <!-- ================= SCREEN 4: IMPORTANCE / EMOTIONAL QUOTE ================= -->
         <section class="screen" id="screen4" role="region" aria-label="Screen 4: Importance">
             <div class="screen-inner">
@@ -355,13 +310,11 @@
                     <span class="section-tag">If You Ever Wonder...</span>
                     <h2 class="section-title">How Important Are You?</h2>
                 </div>
-
                 <div class="importance-wrapper">
                     <div class="heart-pulse-container" aria-hidden="true">
                         <div class="heart-glow-ring"></div>
                         <div class="big-heart">❤️</div>
                     </div>
-
                     <div class="importance-quote-box">
                         <p class="importance-quote">
                             "If I had to explain your place in my life🌍🛤️ I wouldn't know where to start...<br><br>
@@ -370,7 +323,6 @@
                         </p>
                     </div>
                 </div>
-
                 <div class="nav-button-row">
                     <button class="btn btn-subtle" onclick="goToScreen(3)">← Back</button>
                     <button class="btn btn-primary" onclick="goToScreen(5)">
@@ -379,8 +331,6 @@
                 </div>
             </div>
         </section>
-
-
         <!-- ================= SCREEN 5: MEMORY GALLERY ================= -->
         <section class="screen" id="screen5" role="region" aria-label="Screen 5: Memories Gallery">
             <div class="screen-inner">
@@ -390,9 +340,7 @@
                     <p class="section-desc">Every picture holds a feeling, a smile, and a moment that will stay forever.
                     </p>
                 </div>
-
                 <div class="photo-grid">
-
                     <!-- Memory Card 1 (Video) -->
                     <div class="photo-card video-card" tabindex="0" role="button"
                         aria-label="Play video: A Beautiful Memory" onclick="openMemoryLightbox(0)"
@@ -411,7 +359,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Memory Card 2 -->
                     <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Just Us"
                         onclick="openMemoryLightbox(1)"
@@ -427,7 +374,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Memory Card 3 -->
                     <div class="photo-card" tabindex="0" role="button" aria-label="View photo: That Smile"
                         onclick="openMemoryLightbox(2)"
@@ -443,7 +389,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Memory Card 4 -->
                     <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Crazy Times"
                         onclick="openMemoryLightbox(3)"
@@ -459,7 +404,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Memory Card 5 -->
                     <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Beautiful Memories"
                         onclick="openMemoryLightbox(4)"
@@ -475,7 +419,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Memory Card 6 -->
                     <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Forever A Memory"
                         onclick="openMemoryLightbox(5)"
@@ -491,7 +434,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Memory Card 7 -->
                     <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Our Story"
                         onclick="openMemoryLightbox(6)"
@@ -507,7 +449,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Memory Card 8 -->
                     <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Unforgettable"
                         onclick="openMemoryLightbox(7)"
@@ -523,7 +464,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Memory Card 9 -->
                     <div class="photo-card" tabindex="0" role="button" aria-label="View photo: Good Times"
                         onclick="openMemoryLightbox(8)"
@@ -539,7 +479,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Memory Card 10 -->
                     <div class="photo-card" tabindex="0" role="button" aria-label="View photo: And Many More"
                         onclick="openMemoryLightbox(9)"
@@ -555,9 +494,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="nav-button-row">
                     <button class="btn btn-subtle" onclick="goToScreen(4)">← Back</button>
                     <button class="btn btn-primary" onclick="goToScreen(6)">
@@ -566,8 +503,6 @@
                 </div>
             </div>
         </section>
-
-
         <!-- ================= SCREEN 6: OUR JOURNEY (TIMELINE) ================= -->
         <section class="screen" id="screen6" role="region" aria-label="Screen 6: Our Journey">
             <div class="screen-inner">
@@ -576,9 +511,7 @@
                     <h2 class="section-title">Little Moments, Big Memories</h2>
                     <p class="section-desc">A timeline of the milestones that brought us closer together.</p>
                 </div>
-
                 <div class="timeline">
-
                     <!-- Milestone 1 -->
                     <div class="timeline-item">
                         <div class="timeline-dot" aria-hidden="true"></div>
@@ -589,7 +522,6 @@
                             </p>
                         </div>
                     </div>
-
                     <!-- Milestone 2 -->
                     <div class="timeline-item">
                         <div class="timeline-dot" aria-hidden="true"></div>
@@ -600,7 +532,6 @@
                             </p>
                         </div>
                     </div>
-
                     <!-- Milestone 3 -->
                     <div class="timeline-item">
                         <div class="timeline-dot" aria-hidden="true"></div>
@@ -611,7 +542,6 @@
                             </p>
                         </div>
                     </div>
-
                     <!-- Milestone 4 -->
                     <div class="timeline-item">
                         <div class="timeline-dot" aria-hidden="true"></div>
@@ -623,7 +553,6 @@
                             </p>
                         </div>
                     </div>
-
                     <!-- Milestone 5 -->
                     <div class="timeline-item">
                         <div class="timeline-dot" aria-hidden="true"></div>
@@ -635,9 +564,7 @@
                             </p>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="nav-button-row">
                     <button class="btn btn-subtle" onclick="goToScreen(5)">← Back</button>
                     <button class="btn btn-primary" onclick="goToScreen(7)">
@@ -646,39 +573,31 @@
                 </div>
             </div>
         </section>
-
-
         <!-- ================= SCREEN 7: FINAL WISH ================= -->
         <section class="screen" id="screen7" role="region" aria-label="Screen 7: Final Wish">
             <div class="screen-inner">
                 <div class="glass-card final-card">
                     <div class="glass-shine" aria-hidden="true"></div>
-
                     <h2 class="final-title">One Last Thing...🥹 ❤️</h2>
-
                     <p class="final-subtext">
                         If you ever feel like you're not important, come back to this page.
                         Read this again. Look at these memories again.
                     </p>
-
                     <div class="affirmation-box">
                         <p class="affirmation-line">You are important.</p>
                         <p class="affirmation-line">You are appreciated.</p>
                         <p class="affirmation-line">You are remembered.</p>
                         <p class="affirmation-line highlight">You are loved in a very special way ✨💫❤️</p>
                     </div>
-
                     <p class="final-gift-quote">
                         And if I could give you one gift today, it wouldn't be something wrapped in a box.<br><br>
                         It would be the ability to see yourself through my eyes for just one moment...<br><br>
                         Maybe then you'd understand just how special you really are to me.
                     </p>
-
                     <h3 class="final-special-person">
                         Happy Birthday,<br>
                         <span>My Special Person 💗💎🫵🏻</span>
                     </h3>
-
                     <div class="final-actions">
                         <button class="btn btn-primary celebrate-btn" id="celebrateAgainBtn"
                             onclick="triggerCelebration()">
@@ -691,10 +610,7 @@
                 </div>
             </div>
         </section>
-
     </main>
-
-
     <!-- ================= CUSTOM WISH CONFIRMATION MODAL ================= -->
     <div class="modal-backdrop" id="wishModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
         aria-hidden="true">
@@ -709,8 +625,6 @@
             </button>
         </div>
     </div>
-
-
     <!-- ================= PHOTO & VIDEO LIGHTBOX MODAL ================= -->
     <div class="lightbox-backdrop" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true"
         onclick="closeLightbox(event)">
@@ -726,7 +640,6 @@
                     onclick="closeLightbox(event)">&times;</button>
             </div>
         </div>
-
         <!-- Navigation Arrows -->
         <button class="lightbox-nav-btn prev" id="lightboxPrevBtn" aria-label="Previous memory"
             title="Previous (Left Arrow)" onclick="prevMemory(event)">
@@ -736,7 +649,6 @@
             onclick="nextMemory(event)">
             <span>&#10095;</span>
         </button>
-
         <div class="lightbox-content" id="lightboxContent" onclick="event.stopPropagation()">
             <div class="lightbox-media-container" id="lightboxMediaContainer">
                 <img src="" alt="Memory Full Preview" id="lightboxImg" class="lightbox-img">
@@ -750,7 +662,6 @@
             </div>
         </div>
     </div>
-
     <!-- JavaScript Application Logic -->
     <script src="script.js"></script>
 </body>

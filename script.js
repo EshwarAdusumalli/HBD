@@ -478,7 +478,7 @@ const MEMORIES = [
         id: 1,
         type: 'video',
         src: 'Motivator.mp4',
-        poster: 'assets/images/photo1.jpeg',
+        poster: 'photo1.jpeg',
         badge: 'Memory 01 • Video 🎬',
         title: 'A Beautiful Memory ❤️',
         desc: 'One of those moments I will always keep close to my heart.'
@@ -486,7 +486,7 @@ const MEMORIES = [
     {
         id: 2,
         type: 'image',
-        src: 'assets/images/photo2.jpeg',
+        src: 'photo10.jpeg',
         badge: 'Memory 02 • Photo 📸',
         title: 'Just Us ✨',
         desc: 'One picture, a thousand memories.'
@@ -494,7 +494,7 @@ const MEMORIES = [
     {
         id: 3,
         type: 'image',
-        src: 'assets/images/photo3.jpeg',
+        src: 'photo5.jpeg',
         badge: 'Memory 03 • Photo 📸',
         title: 'That Smile 🥹',
         desc: 'One of my favourite things.'
@@ -502,15 +502,15 @@ const MEMORIES = [
     {
         id: 4,
         type: 'image',
-        src: 'assets/images/photo4.jpeg',
+        src: 'photo11.jpeg',
         badge: 'Memory 04 • Photo 📸',
-        title: 'Crazy Times 😂',
+        title: 'Forever favourite 💗💎🤌🏻',
         desc: 'The moments that make no sense but mean everything.'
     },
     {
         id: 5,
         type: 'image',
-        src: 'assets/images/photo5.jpeg',
+        src: 'photo3.jpeg',
         badge: 'Memory 05 • Photo 🌸',
         title: 'Beautiful Memories 🌸',
         desc: 'Some moments deserve to be remembered forever.'
@@ -518,23 +518,23 @@ const MEMORIES = [
     {
         id: 6,
         type: 'image',
-        src: 'assets/images/photo6.jpeg',
+        src: 'photo6.jpeg',
         badge: 'Memory 06 • Photo 💫',
-        title: 'Forever A Memory 💫',
+        title: 'Just you 💫',
         desc: "I'm glad this moment happened."
     },
     {
         id: 7,
         type: 'image',
-        src: 'assets/images/photo7.jpeg',
+        src: 'photo7.jpeg',
         badge: 'Memory 07 • Photo 📖',
-        title: 'Our Story 📖',
+        title: 'The innocent face 🫣',
         desc: 'Another page of our beautiful story.'
     },
     {
         id: 8,
         type: 'image',
-        src: 'assets/images/photo8.jpeg',
+        src: 'photo8.jpeg',
         badge: 'Memory 08 • Photo ❤️',
         title: 'Unforgettable ❤️',
         desc: 'This one will always have a special place.'
@@ -542,17 +542,17 @@ const MEMORIES = [
     {
         id: 9,
         type: 'image',
-        src: 'assets/images/photo9.jpeg',
+        src: 'photo9.jpeg',
         badge: 'Memory 09 • Photo 🌙',
-        title: 'Good Times 🌙',
+        title: 'Teenager 👶🏻🐣',
         desc: 'Memories I never want to lose.'
     },
     {
         id: 10,
         type: 'image',
-        src: 'assets/images/photo10.jpeg',
+        src: 'photo2.jpeg',
         badge: 'Memory 10 • Photo 🫶',
-        title: 'And Many More... 🫶',
+        title: 'The way i look at you... 🫶',
         desc: "Because our story isn't finished yet."
     }
 ];
